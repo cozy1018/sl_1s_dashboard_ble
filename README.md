@@ -38,7 +38,7 @@ python ble_vcom_dashboard.py
 ```
 
 A Bluetooth version of the dashboard.  
-Used to receive ECG-like data streams via BLE instead of USB.
+Used to receive real-time ECG data streams via BLE instead of USB.
 
 ### **BLE Scan Test**
 
