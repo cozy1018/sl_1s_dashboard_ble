@@ -1,7 +1,57 @@
-# sl_1s_lead_classifier_dashboard
+# sl_1s_dashboard_ble
 
-Repository for the Python-based dashboard to debug the single-lead embedded ventricular dysfunction project.
+Python-based tools and dashboards for debugging the single-lead ventricular dysfunction detection project.
 
-Connect the Silicon Labs board to a USB port, then execute vcom_with_dashboard.py . End execution with ctrl + C or by closing the plot window. If trying out again, make sure to reset the Silicon Labs board to empty the buffers.
+## Overview
+This repository includes multiple scripts to visualize ECG data, test BLE connectivity, and interact with the Silicon Labs board.
 
-To change the file that is being sent, change line 490 (array_to_send = ecg_long_data_normal ), the options currently are ecg_long_data_normal, ecg_long_data_PVC (external files), and ecg_data_normal, ecg_data_PVC (hardcoded in vcom_with_dasboard.py)
+## USB VCOM Dashboard
+Connect the Silicon Labs board to a USB port, then execute:
+
+```bash
+python vcom_with_dashboard.py
+```
+
+Stop execution with **Ctrl + C** or by closing the plot window.  
+If running again, **reset the Silicon Labs board** to clear the buffers.
+
+### Changing the ECG Data Source
+Modify line 490:
+
+```python
+array_to_send = ecg_long_data_normal
+```
+
+Available options:
+
+- `ecg_long_data_normal` / `ecg_long_data_PVC` (external CSV files)
+- `ecg_data_normal` / `ecg_data_PVC` (hardcoded in `vcom_with_dashboard.py`)
+
+---
+
+## New Files Added
+
+### **BLE VCOM Dashboard**
+
+```bash
+python ble_vcom_dashboard.py
+```
+
+A Bluetooth version of the dashboard.  
+Used to receive ECG-like data streams via BLE instead of USB.
+
+### **BLE Scan Test**
+
+```bash
+python test_Scan.py
+```
+
+Simple BLE scanning script to detect nearby BLE devices and verify connectivity.
+
+---
+
+## Files Included
+- `vcom_with_dashboard.py` – main VCOM dashboard  
+- `ble_vcom_dashboard.py` – BLE dashboard (new)  
+- `test_Scan.py` – BLE device scanner (new)  
+- `ecg_dashboard.py` – ECG visualization  
